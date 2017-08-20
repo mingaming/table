@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body,
+        #content,
+        #moti {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #moti {
+            background-color: rgba(2, 2, 2, .2);
+            position: absolute;
+            top: 0;
+        }
+        
+        #box {
+            width: 400px;
+            height: 250px;
+            background-color: #f1f1f1;
+            position: absolute;
+            left: 50%;
+            top: 200px;
+            box-shadow: 0 0 30px 10px red;
+            margin-left: -200px;
+        }
+        /* 里面的盒子开始的位置 */
+        
+        .inner_top {
+            height: 20%;
+        }
+        
+        .inner_top>div:nth-first-of-type(0) {
+            float: left;
+            height: 100%;
+        }
+        
+        .inner_top>div:nth-last-of-type(1) {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+        }
+        
+        .inner_middle {
+            height: 50%;
+        }
+        
+        .inner_bottom {
+            height: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+
+    </div>
+    <div id="moti">
+        <!-- 里面的盒子的开始位置 -->
+        <div id="box">
+            <ul>
+                <li class="inner_top">
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                </li>
+                <li class="inner_middle">
+                    <div>
+
+                    </div>
+                </li>
+                <li class="inner_bottom">
+                    <input type="button" name="" value="是(Y)">
+                    <input type="button" name="" value="否(N)">
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

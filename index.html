@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *,
+        html,
+        body,
+        div,
+        canvas {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+        
+        canvas,
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #particles-js {
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            background: url("./img/51b9534daa240.jpg") no-repeat center center;
+            background-size: 100%;
+        }
+        
+        .regin {
+            padding: 5px 10px;
+            box-sizing: border-box;
+            width: 300px;
+            height: 350px;
+            position: absolute;
+            top: 160px;
+            right: 50px;
+            background-color: rgba(255, 255, 255, .85);
+        }
+        
+        form {
+            margin: auto;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+        }
+        
+        thead {
+            height: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .title {
+            background-color: blue;
+            opacity: .5;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        tbody>tr td:nth-of-type(1) {
+            text-align: right;
+            width: 35%;
+        }
+        
+        tbody>tr td:nth-of-type(2) {
+            line-height: 30px;
+            padding-left: 20px;
+        }
+        
+        .verify {
+            width: 100px;
+            height: 40px;
+            box-sizing: border-box;
+            margin: 10px;
+        }
+        
+        .head {
+            line-height: 30px;
+            border-bottom: 3px solid red;
+        }
+        
+        .head div {
+            width: 80px;
+            padding: 0 10px;
+            background-color: red;
+            border-radius: 3px 15px 0 0;
+            color: #f1f1f1;
+        }
+        
+        form {
+            text-align: center;
+        }
+        
+        form>div:nth-of-type(1),
+        form>div:nth-of-type(2) {
+            line-height: 70px;
+            height: 70px;
+        }
+        
+        .regin form>div:nth-of-type(3) {
+            line-height: 35px;
+            height: 35px;
+            width: 200px;
+            margin-left: 40px;
+            text-align: left;
+        }
+        
+        .regin form>div:nth-of-type(3)>div {
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+        
+        form div:nth-of-type(4) {
+            text-align: right;
+            margin-top: 40px;
+            width: 240px;
+        }
+        
+        form div:nth-of-type(1) input,
+        form div:nth-of-type(2) input {
+            height: 30px;
+            width: 200px;
+            border: 2px solid red;
+            border-radius: 5px;
+            font-size: 12px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        
+        .start {
+            width: 70%;
+            float: left;
+            background-color: #fff;
+        }
+        
+        .end {
+            height: 100%;
+            float: left;
+            border: 1px solid red;
+            width: 30%;
+            box-sizing: border-box;
+        }
+        
+        .submit {
+            width: 60px;
+            height: 35px;
+            background-color: skyblue;
+        }
+        
+        .txtarea,
+        .verify,
+        .psd {
+            position: relative;
+        }
+        
+        .txtarea #txtafter {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            position: absolute;
+            right: 10px;
+            top: 27px;
+        }
+        
+        .psd #psdafer {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            position: absolute;
+            right: 10px;
+            top: 27px;
+            cursor: pointer;
+        }
+        
+        #verify {
+            width: 50px;
+            height: 20px;
+            position: absolute;
+            top: 6px;
+            left: 76px;
+        }
+        
+        .end {
+            border: 1px solid #fff;
+            border-left: 1px solid red;
+        }
+        
+        #back {
+            padding-left: 2px;
+            text-align: left;
+            margin-right: 75px;
+        }
+    </style>
+</head>
+
+<div id="particles-js">
+
+
+</div>
+<div class="regin">
+    <div class="head">
+        <div>请求登录：</div>
+    </div>
+    <form action="#" method="get">
+        <div class="txtarea">
+            <input id="txt" type="text" name="user" placeholder="请输入用户名:5-10位">
+            <div id="txtafter"></div>
+        </div>
+        <div class="psd">
+            <input id="psd" type="password" name="psd">
+            <div id="psdafer"></div>
+        </div>
+
+        <div class="verify">
+
+            <div class="start">验证码：</div>
+            <input id="verify" type="text">
+            <div class="end"></div>
+        </div>
+        <div>
+            <input id="back" class="submit" type="button" value="上次登录">
+            <input id="btn" class="submit" type="button" value="regoin"></div>
+    </form>
+    <div id="dv"></div>
+</div>
+
+<body>
+
+
+
+    <script src="./js/particles.js"></script>
+    <script>
+        particlesJS('particles-js', {  
+            particles: {    
+                color: '#fff',
+                    shape: 'circle', // "circle", "edge" or "triangle"
+                    opacity: 1,
+                    size: 4,
+                    size_random: true,
+                    nb: 200,
+                    line_linked: {      
+                    enable_auto: true,
+                          distance: 100,
+                          color: '#fff',
+                          opacity: 1,
+                          width: 1,
+                          condensed_mode: {        
+                        enable: false,
+                                rotateX: 600,
+                                rotateY: 600      
+                    }    
+                },
+                    anim: {      
+                    enable: true,
+                          speed: 1    
+                }  
+            },
+              interactivity: {    
+                enable: true,
+                    mouse: {      
+                    distance: 250    
+                },
+                    detect_on: 'canvas', // "canvas" or "window"
+                    mode: 'grab',
+                    line_linked: {      
+                    opacity: .5    
+                },
+                    events: {      
+                    onclick: {        
+                        enable: true,
+                                mode: 'push', // "push" or "remove" (particles)
+                                nb: 4      
+                    }    
+                }  
+            },
+               /* Retina Display Support */   retina_detect: true
+        });
+    </script>
+    <script>
+        //     /^1[3|5|8][0-9]\d{4,8}$/   验证手机号
+        //    QQ : /^[1-9]\d{4,8}$/  
+        var regTel = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){4,9}$/; //验证用户名 5-10
+        var patrn = /^(\w){5,14}$/; //验证密码  5-15
+        //var regTelxx = /^0\d\d-\d\d\d\d\d\d\d\d$/;
+        var txt = document.getElementById("txt");
+        var psd = document.getElementById("psd");
+        var txtafter = document.getElementById("txtafter");
+        var psdafer = document.getElementById("psdafer");
+        var verify = document.getElementById("verify");
+        var btn = document.getElementById("btn");
+        var dv = document.getElementById("dv");
+        var back = document.getElementById("back");
+        txt.onblur = function() {
+            if (regTel.test(this.value)) {
+                txtafter.innerHTML = "✔";
+                txtafter.style.color = "green";
+            } else {
+                txtafter.innerHTML = "X";
+                txtafter.style.color = "red";
+                txt.value = "";
+                psdafer.disabled = false;
+            }
+        }
+        psd.onblur = function() {
+            if (patrn.test(this.value)) {
+                psdafer.innerHTML = "✔";
+                psdafer.style.color = "green";
+            } else {
+                psdafer.innerHTML = "X";
+                psdafer.style.color = "red";
+                psd.value = "";
+            }
+        }
+        verify.onkeyup = function() {
+            if (this.value.length == 4) {
+                verify.style.border = "1px solid green";
+            } else {
+                verify.style.border = "1px dotted red";
+            }
+        }
+        psdafer.onclick = function() {
+            if (psd.type === "password") {
+                psd.type = "text";
+            } else {
+                psd.type = "password";
+            }
+        }
+
+        //点击的时候拿到输入框中的值：
+        // var arr = [];
+        btn.onclick = function() {
+            var u = new user(txt.value, psd.value);
+            var result = u.save();
+            if (result) {
+                dv.innerHTML = "注册成功"
+                return
+            } else {
+                dv.innerHTML = "注册失败"
+            }
+        }
+
+
+        function user(name, pwd) {
+            this.name = name;
+            this.pwd = pwd;
+        }
+
+        user.prototype.save = function() {
+            var str = window.localStorage.getItem("mesage") || "[]";
+            var arr = JSON.parse(str);
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].name === this.name) {
+                    return
+                }
+            }
+
+            console.log(arr);
+            arr.push({
+                name: this.name,
+                pwd: this.pwd
+            });
+            console.log(arr);
+            window.localStorage.setItem("mesage", JSON.stringify(arr));
+            return;
+        }
+        back.onclick = function() {
+            var stt = window.localStorage.getItem("mesage") || "[]";
+            var stt = JSON.parse(stt);
+            txt.value = stt[0].name;
+            psd.value = stt[0].pwd;
+
+        }
+
+        // window.onload = function() {
+        //     //下次登陆如果有值就提醒  没值就不提醒
+        //     var str = window.localStorage.getItem("mesage") || "[]";
+        //     var arr = JSON.parse(arr);
+        //     // var ar = str.split(",");
+        //     console.log(typeof ar);
+        // }
+    </script>
+</body>
+
+</html>

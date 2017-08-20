@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 100px;
+            border: 1px solid red;
+            width: 500px;
+        }
+        
+        ul li {
+            line-height: 50px;
+            width: 200px;
+            text-align: center;
+            border: 1px solid red;
+        }
+        
+        ul li:hover {
+            background-color: red;
+            color: white;
+        }
+        
+        #box {
+            position: absolute;
+            top: 100px;
+            right: 300px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to left, red, yellow);
+            border-radius: 6px;
+            border: 1px solid black;
+            /* transition: all .7s 0s ease; */
+            /* background-color: red; */
+        }
+    </style>
+</head>
+<ul>
+    <li>表单1</li>
+    <li>表单2</li>
+    <li>表单3</li>
+    <li>表单4</li>
+    <li>表单5</li>
+</ul>
+<div id="box">
+
+</div>
+
+<body>
+    <script defer>
+        (function() {
+            var lis = document.getElementsByTagName("li");
+
+            var box = document.getElementById("box");
+            // box.onclick = function() {
+            //     alert(1);
+            // }
+            console.log(lis);
+
+            var num = 1;
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onclick = function() {
+                    num += 1;
+                    console.log(num);
+                    if (num % 2 !== 0) {
+                        box.style.background = "linear-gradient(to left, red, yellow)";
+                        //this.css().sibling().css();
+                    } else {
+                        box.style.background = "linear-gradient(to right, red, yellow)";
+                    }
+
+                }
+
+
+            }
+        })()
+    </script>
+</body>
+
+</html>
